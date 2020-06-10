@@ -1,23 +1,24 @@
 #!/bin/bash
-read -p "choose 1 for fulltime and 2 for parttime" n
-fulltime=8
-parttime=4
-salary=0
+        echo "Welcome to employee Wage Computation"
+ispart=1
+isfull=2
 perhrrate=20
-case $n in
-1)
-echo "fulltame wage"
-salary=$(( $fulltime * $perhrrate ))
-echo $salary
-;;
+salary=0
+fullhr=8
+parthr=4
+days=20
+randomcheck=$((RANDOM%3))
 
-2)
-echo "parttime wage"
-salary=$(( $parttime*$perhrrate ))
-echo $salary
-;;
+if [ $isfull -eq $randomcheck ]
+    then
+        salary=$(( $fullhr*$days*$perhrrate ))
+        echo "fill time salary for month " $salary
+elif [ $ispart -eq $randomcheck ]
+    then
+        salary=$(( $parthr*$days*$perhrrate ))
+        echo "part time salary for month " $salary
+else
+        hrs=0
+fi
 
-3)
-echo "invalid choice "
-;;
-esac
+
