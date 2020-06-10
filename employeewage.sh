@@ -1,19 +1,23 @@
 #!/bin/bash
+read -p "choose 1 for fulltime and 2 for parttime" n
+fulltime=8
+parttime=4
+salary=0
+perhrrate=20
+case $n in
+1)
+echo "fulltame wage"
+salary=$(( $fulltime * $perhrrate ))
+echo $salary
+;;
 
-#echo "Welcome to Employe Wage Computation Program"
+2)
+echo "parttime wage"
+salary=$(( $parttime*$perhrrate ))
+echo $salary
+;;
 
-isPartTime=1
-isFullTime=2
-empRatePerHr=20
-randomCheck=$((RANDOM%3))
-
-if [ $isFullTime -eq $randomCheck ]
-then
-	empHrs=8
-elif [ $isPartTime -eq $randomCheck ]
-then
-	empHrs=4
-else
-	empHrs=0
-fi
-salary=$(($empHrs*$empRatePerHr))
+3)
+echo "invalid choice "
+;;
+esac
