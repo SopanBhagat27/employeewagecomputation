@@ -1,24 +1,41 @@
-#!/bin/bash
-        echo "Welcome to employee Wage Computation"
-ispart=1
-isfull=2
-perhrrate=20
-salary=0
-fullhr=8
-parthr=4
-days=20
-randomcheck=$((RANDOM%3))
+#! /bin/bash
 
-if [ $isfull -eq $randomcheck ]
-    then
-        salary=$(( $fullhr*$days*$perhrrate ))
-        echo "fill time salary for month " $salary
-elif [ $ispart -eq $randomcheck ]
-    then
-        salary=$(( $parthr*$days*$perhrrate ))
-        echo "part time salary for month " $salary
-else
-        hrs=0
-fi
+echo "Welcome to Employee Wage Computation"
 
+isPartTime=1
+isFullTime=2
+empRate=20
+maxDay=20
+maxHrsInMonth=100
+totalSalary=0
 
+totalEmpHrs=0
+totalWorkingDays=0
+
+while [[ $totalEmpHrs -lt $maxHrsInMonth && $totalworkingDays -lt $maxDay ]]
+do
+        ((totalWorkingDays++))
+
+        temp=$(( $RANDOM%3 ))
+
+        case $temp in
+                $isPartTime)
+                        empHrs=8
+                        echo "Working Part Time..."
+                        ;;
+                $isFullTime)
+                        empHrs=4
+                        echo "Working Full Time..."
+                        ;;
+                *)
+                        empHrs=0
+                        echo "Employee is not present..."
+                        ;;
+        esac
+
+        totalEmpHrs=$(( $totalEmpHrs + $empHrs ))
+done
+
+totalSalary=$(( $totalEmpHrs + $empRate ))
+
+echo "Total Salary = " $totalSalary
