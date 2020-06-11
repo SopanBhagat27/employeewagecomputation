@@ -52,10 +52,6 @@ echo ${!dailywage[@]}
 
 
 
-^G Get Help      ^O Write Out     ^W Where Is      ^K Cut Text      ^J Justify       ^C Cur Pos       M-U Undo         M-A Mark Text    M-] To Bracket   M-Q Previous     ^B Back
-^X Exit          ^R Read File     ^\ Replace       ^U Paste Text    ^T To
-totalSalary=$(( $totalEmphr*$empRatePerHr ))
-echo ${dailyWage[@]}
 
 
 
