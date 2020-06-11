@@ -41,6 +41,7 @@ while [[ $totalEmphr -lt $maxHrsInMonth && $totalWorkingDays -lt $NumofWorkingDA
     do
 		(( $totalWorkingDays++ ))
 		empCheck=$(( RANDOM%3 ))
+		empHrs="$( getWorkhr $empcheck )"
 		empHrs="$(( $totalEmphr+$emphrs ))"
 		dailyWage[$totalWorkingDays]="$(( getEmpWage empHr))"
     done
