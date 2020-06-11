@@ -1,20 +1,51 @@
 #!/bin/bash
-hour(){
-isfull=1
-ispart=2
-rateperhr=20
+echo "welcome to employee wage computation"
 
-randomcheck=$((RANDOM%3))
-if [ $isfull -eq $randomcheck ]
-  then
-        echo "full time working hr is 8"
-elif [ $ispart -eq $randomcheck ]
-  then
-        echo "part time working hr is 4"
-else
-        echo "working hr 0"
-fi
+isPartTime=1
+isFullTime=2
+maxHrsInMonth=100
+empRatePerHr=20
+NumofWorkingDAys=20
+
+totalEmphr=0
+totalWorkingDays=0
+
+function getworkhr()
+{
+	case $1 in
+		$isFullTime)
+				emphr=8
+		;;
+
+		$isPartTime)
+				emphr=4
+		;;
+
+		*)
+				emphr=0
+		;;
+		esac
+
+		echo $emphr
+
+
 }
-hour
+function getEmpWage()
+{
+	local empHr=$1
+	echo  $(($empHr*$empRatePerHR))
+
+}
+
+while [[ $totalEmphr -lt $maxHrsInMonth && $totalWorkingDays -lt $NumofWorkingDAys ]]
+    do
+		(( $totalWorkingDays++ ))
+		empCheck=$(( RANDOM%3 ))
+		empHrs="$(( $totalEmphr+$emphrs ))"
+		dailyWage[$totalWorkingDays]="$(( getEmpWage empHr))"
+    done
+totalSalary=$(( $totalEmphr*$empRatePerHr ))
+echo ${dailyWage[@]}
+
 
 
